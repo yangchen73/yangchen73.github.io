@@ -1,0 +1,12 @@
+@import "tailwindcss";
+
+/* Base typography scaling */
+html { font-size: 18px; }
+@media (min-width: 1024px) { html { font-size: 19px; } }
+body { line-height: 1.75; }
+
+/* Headings tracking */
+h1, h2, h3 { letter-spacing: -0.01em; }
+
+/* Smooth link/hover transitions */
+a { transition: color .15s ease, background-color .15s ease, opacity .15s ease; }
