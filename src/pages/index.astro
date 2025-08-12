@@ -26,14 +26,41 @@ import Layout from "../layouts/Layout.astro";
     </div>
   </section>
 
-  <section id="news" class="scroll-mt-20 py-12 border-t border-slate-200/60 dark:border-slate-800/60">
+  <section id="education-news" class="scroll-mt-20 py-12 border-t border-slate-200/60 dark:border-slate-800/60">
     <div class="mx-auto max-w-6xl">
-      <h2 class="text-2xl font-semibold">Latest Updates</h2>
-      <ul class="mt-5 space-y-3 text-base">
-        <li class="flex gap-3"><span class="text-slate-500 w-28 shrink-0">2024-12</span><span>One paper accepted to [Conference/Journal].</span></li>
-        <li class="flex gap-3"><span class="text-slate-500 w-28 shrink-0">2024-11</span><span>Gave a talk at [Conference].</span></li>
-        <li class="flex gap-3"><span class="text-slate-500 w-28 shrink-0">2024-10</span><span>Received [Award].</span></li>
-      </ul>
+      <div class="grid md:grid-cols-2 gap-12">
+        <!-- Education Section -->
+        <div id="education">
+          <h2 class="text-2xl font-semibold">Education</h2>
+                     <div class="mt-5 space-y-4">
+             <div class="border-l-4 border-sky-500 pl-4">
+               <h3 class="text-lg font-medium">B.Eng. Electronic & Computer Engineering</h3>
+               <p class="text-slate-600 dark:text-slate-300">The Chinese University of Hong Kong, Shenzhen</p>
+               <p class="text-sm text-slate-500">2022 - 2026 (Expected)</p>
+             </div>
+             <div class="border-l-4 border-slate-300 dark:border-slate-600 pl-4">
+               <h3 class="text-lg font-medium">Visiting Student</h3>
+               <p class="text-slate-600 dark:text-slate-300">University of California, Berkeley</p>
+               <p class="text-sm text-slate-500">August 2024 - December 2024</p>
+             </div>
+             <div class="border-l-4 border-slate-300 dark:border-slate-600 pl-4">
+               <h3 class="text-lg font-medium">High School Student</h3>
+               <p class="text-slate-600 dark:text-slate-300">Cangnan Jiahe Middle School</p>
+               <p class="text-sm text-slate-500">2019 - 2022</p>
+             </div>
+           </div>
+        </div>
+
+        <!-- Latest Updates Section -->
+        <div id="news">
+          <h2 class="text-2xl font-semibold">Latest Updates</h2>
+          <ul class="mt-5 space-y-3 text-base">
+            <li class="flex gap-3"><span class="text-slate-500 w-28 shrink-0">2024-12</span><span>One paper accepted to [Conference/Journal].</span></li>
+            <li class="flex gap-3"><span class="text-slate-500 w-28 shrink-0">2024-11</span><span>Gave a talk at [Conference].</span></li>
+            <li class="flex gap-3"><span class="text-slate-500 w-28 shrink-0">2024-10</span><span>Received [Award].</span></li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -70,18 +97,33 @@ import Layout from "../layouts/Layout.astro";
   <section id="awards" class="scroll-mt-20 py-12 border-t border-slate-200/60 dark:border-slate-800/60">
     <div class="mx-auto max-w-6xl">
       <h2 class="text-2xl font-semibold">Awards</h2>
-      <div class="mt-7 grid md:grid-cols-2 gap-7">
-        <article class="rounded-lg border border-slate-200 dark:border-slate-700 p-6 hover:shadow-md transition">
-          <h3 class="text-lg font-medium">Best Paper Award</h3>
-          <p class="mt-1 text-sm text-slate-500">[Conference Name] · 2024</p>
-          <p class="mt-3 text-base">Recognized for outstanding contribution and results.</p>
-        </article>
-        <article class="rounded-lg border border-slate-200 dark:border-slate-700 p-6 hover:shadow-md transition">
-          <h3 class="text-lg font-medium">Scholarship</h3>
-          <p class="mt-1 text-sm text-slate-500">[Scholarship Name] · 2023</p>
-          <p class="mt-3 text-base">Awarded for academic excellence and leadership.</p>
-        </article>
-      </div>
+      <ul class="mt-5 list-disc pl-6 space-y-3 text-base">
+        <li>
+          <span class="font-medium">Class C Scholarship</span>
+          <span class="text-slate-500"> — School of Science and Engineering Academic Scholarship · 2024</span>
+          <div class="text-slate-600 dark:text-slate-300">Awarded for academic excellence and leadership.</div>
+        </li>
+        <li>
+          <span class="font-medium">Dean's List</span>
+          <span class="text-slate-500"> — School of Science and Engineering · 2024</span>
+          <div class="text-slate-600 dark:text-slate-300">Awarded for academic excellence.</div>
+        </li>
+        <li>
+          <span class="font-medium">Creative and Innovative Award</span>
+          <span class="text-slate-500"> — University Honors Award · 2024</span>
+          <div class="text-slate-600 dark:text-slate-300">Awarded for creativity and innovation.</div>
+        </li>
+        <li>
+          <span class="font-medium">Class B Scholarship</span>
+          <span class="text-slate-500"> — School of Science and Engineering Academic Scholarship · 2023</span>
+          <div class="text-slate-600 dark:text-slate-300">Awarded for academic excellence and leadership.</div>
+        </li>
+        <li>
+          <span class="font-medium">Dean's list</span>
+          <span class="text-slate-500"> — School of Science and Engineering · 2023</span>
+          <div class="text-slate-600 dark:text-slate-300">Awarded for academic excellence.</div>
+        </li>
+      </ul>
     </div>
   </section>
 
@@ -100,7 +142,10 @@ import Layout from "../layouts/Layout.astro";
           When I was a child, I studied piano for many years and passed the Central Conservatory of Music Amateur Level 6 exam, though I've forgotten a lot now.
         </p>
         <p>
-          In addition, I like physics and Classical Chinese. Welcome to contact me for any reasons!
+          In addition, I like physics and Classical Chinese. 
+        </p>
+        <p>
+          Welcome to contact me for any reasons!
         </p>
       </div>
     </div>
@@ -110,7 +155,7 @@ import Layout from "../layouts/Layout.astro";
     <div class="mx-auto max-w-6xl">
       <h2 class="text-2xl font-semibold">Contact</h2>
       <ul class="mt-5 space-y-2 text-base">
-        <li>Email: email@example.com</li>
+        <li>Email: chenyang@link.cuhk.edu.cn</li>
         <li>GitHub: <a class="text-sky-600 hover:underline" href="https://github.com/yangchen73" target="_blank" rel="noopener">yangchen73</a></li>
         <li>Google Scholar: <a class="text-sky-600 hover:underline" href="#" target="_blank" rel="noopener">Profile</a></li>
       </ul>
