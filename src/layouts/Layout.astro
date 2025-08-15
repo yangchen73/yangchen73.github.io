@@ -52,6 +52,15 @@ const { title = 'Chen Yang — Academic Homepage', description = 'Research, publ
       <slot />
     </main>
 
+    <!-- Clustrmaps Globe -->
+    <div class="border-t border-slate-200/60 dark:border-slate-800/60 py-10">
+      <div class="mx-auto max-w-6xl px-5">
+        <div class="flex justify-center">
+          <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=pV71LnC71IrfEBQZBzoLe3YrtnJhQ5qtWT6to28Cu4o&w=300&h=300"></script>
+        </div>
+      </div>
+    </div>
+
     <footer class="border-t border-slate-200/60 dark:border-slate-800/60 py-10">
       <div class="mx-auto max-w-6xl px-5 text-sm text-slate-500 dark:text-slate-400">
         © {new Date().getFullYear()} Chen Yang. All rights reserved.
@@ -80,6 +89,5 @@ const { title = 'Chen Yang — Academic Homepage', description = 'Research, publ
         });
       });
     </script>
-    <script type="text/javascript" id="clstr_globe" src="//clustrmaps.com/globe.js?d=pV71LnC71IrfEBQZBzoLe3YrtnJhQ5qtWT6to28Cu4o"></script>
   </body>
 </html> 
