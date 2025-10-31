@@ -18,6 +18,9 @@ const { title = 'Chen Yang — Academic Homepage', description = 'Research, publ
     <link rel="preconnect" href="https://scholar.google.com" />
     <link rel="dns-prefetch" href="https://scholar.google.com" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;600;700&display=swap" rel="stylesheet" />
+    <!-- LXGW WenKai webfont for Chinese Kaishu style -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lxgw-wenkai-webfont@1.7.0/style.css" />
     <meta name="color-scheme" content="light" />
     <link rel="preload" href="/cv.pdf" as="document" crossorigin>
     <!-- Global CSS is now included via Tailwind -->
@@ -93,9 +96,9 @@ const { title = 'Chen Yang — Academic Homepage', description = 'Research, publ
             // Update tab button states
             tabButtons.forEach(btn => {
               btn.classList.remove('text-blue-600', 'border-blue-600', 'active');
-              btn.classList.add('text-gray-600');
+              btn.classList.add('text-gray-600', 'border-transparent');
             });
-            this.classList.remove('text-gray-600');
+            this.classList.remove('text-gray-600', 'border-transparent');
             this.classList.add('text-blue-600', 'border-blue-600', 'active');
 
             // Show corresponding content

@@ -109,3 +109,24 @@ section.bg-gray-50 {
 a, button, .project-card, header, nav {
   transition: all 0.3s ease;
 }
+
+/* Local subset webfont for just '楊宸' (place file at /public/fonts/yangchen-kai.woff2) */
+@font-face {
+  font-family: 'YangChenKaiSubset';
+  src: url('/fonts/yangchen-kai.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  /* U+694A (楊), U+5BB8 (宸) */
+  unicode-range: U+694A, U+5BB8;
+}
+
+/* Prefer MingLiU/PMingLiU for Traditional Chinese title */
+.font-mingliu {
+  font-family: "Noto Serif TC", "PMingLiU", "MingLiU", "新細明體", "Noto Serif CJK TC", serif;
+}
+
+/* Kai style fonts (platform-dependent) */
+.font-kai {
+  font-family: 'YangChenKaiSubset', "LXGW WenKai", "KaiTi", "Kaiti SC", "STKaiti", "DFKai-SB", "BiauKai", "楷体", "楷體", serif;
+}

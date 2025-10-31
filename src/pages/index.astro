@@ -9,7 +9,15 @@ import Layout from "../layouts/Layout.astro";
       <div class="text-center md:flex md:items-center md:gap-8 md:text-left">
         <img src="/profile.jpg" alt="Chen Yang" class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover mx-auto md:mx-0 mb-6 md:mb-0 shadow-lg ring-4 ring-gray-300 ring-offset-2 ring-offset-white" loading="lazy" decoding="async" />
         <div class="flex-1">
-          <h1 class="text-5xl font-bold text-gray-900 mb-4">Chen Yang</h1>
+          <h1 class="text-5xl font-bold text-gray-900 mb-4">
+            <span class="flex flex-col items-center md:items-start leading-tight">
+              <span class="inline-flex items-center mb-2">
+                <img src="/images/杨.svg" alt="杨" class="h-16 inline-block" loading="lazy" decoding="async" />
+                <img src="/images/宸.svg" alt="宸" class="h-16 inline-block ml-1" loading="lazy" decoding="async" />
+              </span>
+              <span>Chen Yang</span>
+            </span>
+          </h1>
           <p class="text-xl text-gray-600 mb-6">CUHK-Shenzhen · Electronic & Computer Engineering · Undergraduate</p>
           <p class="text-lg text-gray-700 max-w-3xl md:mx-0 mx-auto leading-relaxed">
             I am an undergraduate student at The Chinese University of Hong Kong, Shenzhen, majoring in Electronic & Computer Engineering.
@@ -136,8 +144,8 @@ import Layout from "../layouts/Layout.astro";
       <!-- Section Tabs -->
       <div class="flex gap-6 mb-8 border-b border-gray-200" id="background-tabs">
         <button class="tab-btn px-4 py-2 text-blue-600 border-b-2 border-blue-600 font-medium active" data-tab="education">Education</button>
-        <button class="tab-btn px-4 py-2 text-gray-600 hover:text-blue-600 transition-colors" data-tab="experience">Experience</button>
-        <button class="tab-btn px-4 py-2 text-gray-600 hover:text-blue-600 transition-colors" data-tab="service">Service</button>
+        <button class="tab-btn px-4 py-2 text-gray-600 hover:text-blue-600 transition-colors border-b-2 border-transparent" data-tab="experience">Experience</button>
+        <button class="tab-btn px-4 py-2 text-gray-600 hover:text-blue-600 transition-colors border-b-2 border-transparent" data-tab="service">Service</button>
       </div>
 
       <!-- Experience Items -->

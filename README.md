@@ -44,38 +44,3 @@ npm run build
 # Preview build
 npm run preview
 ```
-
-## 🚀 Deployment
-
-The website is automatically deployed via GitHub Actions:
-
-1. Push code to `main` branch
-2. GitHub Actions automatically builds
-3. Deploy to GitHub Pages
-
-## 📝 Content Updates
-
-To update website content, edit `src/pages/index.astro` file, then:
-
-```bash
-git add .
-git commit -m "Update website content"
-git push origin main
-```
-
-## 🎨 Features
-
-- ✨ Responsive design
-- 🌙 Dark/light theme toggle
-- 📱 Mobile optimized
-- ⚡ Fast loading
-- 🔍 SEO friendly
-
-## 📄 License
-
-MIT License
-
----
-
-**Contact**: [GitHub](https://github.com/yangchen73)
-# Trigger deployment
