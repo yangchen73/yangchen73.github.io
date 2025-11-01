@@ -1,0 +1,337 @@
+\documentclass[10pt, letterpaper]{article}
+
+% Packages:
+\usepackage[
+    ignoreheadfoot, % set margins without considering header and footer
+    top=2 cm, % seperation between body and page edge from the top
+    bottom=2 cm, % seperation between body and page edge from the bottom
+    left=2 cm, % seperation between body and page edge from the left
+    right=2 cm, % seperation between body and page edge from the right
+    footskip=1.0 cm, % seperation between body and footer
+    % showframe % for debugging 
+]{geometry} % for adjusting page geometry
+\usepackage{titlesec} % for customizing section titles
+\usepackage{tabularx} % for making tables with fixed width columns
+\usepackage{array} % tabularx requires this
+\usepackage[dvipsnames]{xcolor} % for coloring text
+\definecolor{primaryColor}{RGB}{0, 0, 0} % define primary color
+\usepackage{enumitem} % for customizing lists
+\usepackage{fontawesome5} % for using icons
+\usepackage{amsmath} % for math
+\usepackage[
+    pdftitle={Chen Yang's CV},
+    pdfauthor={Chen Yang},
+    pdfcreator={LaTeX},
+    colorlinks=true,
+    urlcolor=primaryColor
+]{hyperref} % for links, metadata and bookmarks
+\usepackage[pscoord]{eso-pic} % for floating text on the page
+\usepackage{calc} % for calculating lengths
+\usepackage{bookmark} % for bookmarks
+\usepackage{lastpage} % for getting the total number of pages
+\usepackage{changepage} % for one column entries (adjustwidth environment)
+\usepackage{paracol} % for two and three column entries
+\usepackage{ifthen} % for conditional statements
+\usepackage{needspace} % for avoiding page brake right after the section title
+\usepackage{iftex} % check if engine is pdflatex, xetex or luatex
+
+% Ensure that generate pdf is machine readable/ATS parsable:
+\ifPDFTeX
+    \input{glyphtounicode}
+    \pdfgentounicode=1
+    \usepackage[T1]{fontenc}
+    \usepackage[utf8]{inputenc}
+    \usepackage{lmodern}
+\fi
+
+\usepackage{charter}
+
+% Some settings:
+\raggedright
+\AtBeginEnvironment{adjustwidth}{\partopsep0pt} % remove space before adjustwidth environment
+\pagestyle{empty} % no header or footer
+\setcounter{secnumdepth}{0} % no section numbering
+\setlength{\parindent}{0pt} % no indentation
+\setlength{\topskip}{0pt} % no top skip
+\setlength{\columnsep}{0.15cm} % set column seperation
+\pagenumbering{gobble} % no page numbering
+
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+
+\titlespacing{\section}{
+    % left space:
+    -1pt
+}{
+    % top space:
+    0.3 cm
+}{
+    % bottom space:
+    0.2 cm
+} % section title spacing
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$} % custom bullet points
+\newenvironment{highlights}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=0 cm + 10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights
+
+
+\newenvironment{highlightsforbulletentries}{
+    \begin{itemize}[
+        topsep=0.10 cm,
+        parsep=0.10 cm,
+        partopsep=0pt,
+        itemsep=0pt,
+        leftmargin=10pt
+    ]
+}{
+    \end{itemize}
+} % new environment for highlights for bullet entries
+
+\newenvironment{onecolentry}{
+    \begin{adjustwidth}{
+        0 cm + 0.00001 cm
+    }{
+        0 cm + 0.00001 cm
+    }
+}{
+    \end{adjustwidth}
+} % new environment for one column entries
+
+\newenvironment{twocolentry}[2][]{
+    \onecolentry
+    \def\secondColumn{#2}
+    \setcolumnwidth{\fill, 4.5 cm}
+    \begin{paracol}{2}
+}{
+    \switchcolumn \raggedleft \secondColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for two column entries
+
+\newenvironment{threecolentry}[3][]{
+    \onecolentry
+    \def\thirdColumn{#3}
+    \setcolumnwidth{, \fill, 4.5 cm}
+    \begin{paracol}{3}
+    {\raggedright #2} \switchcolumn
+}{
+    \switchcolumn \raggedleft \thirdColumn
+    \end{paracol}
+    \endonecolentry
+} % new environment for three column entries
+
+\newenvironment{header}{
+    \setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}
+}{
+    \par\kern\topsep
+} % new environment for the header
+
+\newcommand{\placelastupdatedtext}{% \placetextbox{<horizontal pos>}{<vertical pos>}{<stuff>}
+  \AddToShipoutPictureFG*{% Add <stuff> to current page foreground
+    \put(
+        \LenToUnit{\paperwidth-2 cm-0 cm+0.05cm},
+        \LenToUnit{\paperheight-1.0 cm}
+    ){\vtop{{\null}\makebox[0pt][c]{
+        \small\color{gray}\textit{Last updated in \today}\hspace{\widthof{Last updated in \today}}
+    }}}%
+  }%
+}%
+
+% save the original href command in a new command:
+\let\hrefWithoutArrow\href
+
+% new command for external links:
+
+
+\begin{document}
+    \newcommand{\AND}{\unskip
+        \cleaders\copy\ANDbox\hskip\wd\ANDbox
+        \ignorespaces
+    }
+    \newsavebox\ANDbox
+    \sbox\ANDbox{$|$}
+
+    \begin{header}
+        \fontsize{25 pt}{25 pt}\selectfont Chen Yang
+
+        \vspace{5 pt}
+
+        \normalsize
+        \mbox{\hrefWithoutArrow{mailto:chenyang@link.cuhk.edu.cn}{chenyang@link.cuhk.edu.cn}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{tel:+86-15267711552}{(+86) 15267711552}}%
+        \kern 5.0 pt%
+        \AND%
+        \kern 5.0 pt%
+        \mbox{\hrefWithoutArrow{https://yangchen73.github.io}{yangchen73.github.io}}%
+
+        \vspace{3 pt}
+
+        \normalsize
+        The Chinese University of Hong Kong, Shenzhen, China, 518172
+    \end{header}
+
+    \vspace{5 pt - 0.3 cm}
+
+    \section{Education}
+
+        \begin{twocolentry}{
+            09/2022 -- Present
+        }
+            \textbf{The Chinese University of Hong Kong, Shenzhen}\\
+            Major in Computer Engineering
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Cumulative GPA: 3.85/4.0 (Rank: 5/268 in School of Science and Engineering)
+                \item Research Interests: Robot Learning, Reinforcement Learning, Deep Learning
+                \item Awards \& Honors: Creativity and Innovation Award, 2024; Academic Scholarship, 2023 \& 2024; \\ 
+                Dean's List, 2023 \& 2024 \& 2025
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            08/2024 -- 12/2024
+        }
+            \textbf{University of California, Berkeley}\\
+            Exchange Program
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Cumulative GPA: 4.0/4.0
+                \item Related Courses: Computer Architecture, Artificial Intelligence, Discrete Math (A+)
+            \end{highlights}
+        \end{onecolentry}
+
+
+
+    
+    \section{Research}
+
+        \begin{twocolentry}{
+            09/2024 -- 12/2024
+        }
+            \textbf{UAV Path Planning and Attitude Control}\\
+            Research Assistant; Supervised by Prof. Mark M. Mueller and Ruiqi Zhang\\
+            High Performance Lab, UC Berkeley
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Aimed to minimize the impact of air on each other drones while cooperating by using reinforcement learning
+                \item Simulated various relative situations of two drones using Pybullet; Realized UAV attitude stabilization even when subjected to strong air current disturbances using the PPO algorithm
+                \item Plan to design a network to process information from multiple drones and extend the algorithm from two to multiple agents
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            09/2023 -- Present
+        }
+            \textbf{Smart Stop Snoring Pillow}\\
+            Research Assistant; Supervised by Prof. Jian Zhu and Xuanyang Xu\\
+            Soft Robotics Lab, CUHKSZ
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Aimed to design and implement a smart pillow to achieve an anti-snoring effect by detecting the user's snoring and adjusting the pillow's height to keep the user's airway clear
+                \item Achieved precise control of the balloon's altitude using Poiseuille's principle to replace the flow meter with two barometers; Built an intermediate layer using ROS, achieving efficient communication between the upper computer and the microcontroller; Implemented Snoring Recognition with Spatio-Temporal Graph Neural Networks
+                \item Realized effective recognition and elimination of snoring and planned to submit to IROS
+            \end{highlights}
+        \end{onecolentry}
+
+
+
+    
+    \section{Internship and Competitions}
+
+        \begin{twocolentry}{
+            04/2024 -- 08/2024
+        }
+            \textbf{Shenzhen Research Institute of Big Data}\\
+            Research Assistant; Supervised by Dr. Yangyang Peng and Dr. Yinjun Shen
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Aimed to achieve efficient and accurate prediction of building loads, providing valuable information for power allocation
+                \item Extracted features using Fast Fourier Transform and constructed an LSTM-T-KAN model for long-term building load forecasting
+                \item Planning to submit our work to Applied Energy, and I am the second author
+            \end{highlights}
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{twocolentry}{
+            07/2024 -- 09/2024
+        }
+            \textbf{2nd Prize in the Chinese Undergraduate Physics Experiment Competition}\\
+            Team Leader; Supervised by Prof. Xiaolu Zhuo, Prof. Chaorui Li, and Dr. Edward Chen
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Proposed a real-time synchronous measurement scheme for steady and alternating weak magnetic fields in a double solenoid based on the giant magnetoresistance effect and digital lock-in amplification technology
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{Activities}
+
+        \begin{twocolentry}{
+            01/2024 -- 05/2024
+        }
+            \textbf{Teaching Assistant of Mechanics (PHY 1001)}
+        \end{twocolentry}
+
+        \vspace{0.10 cm}
+        \begin{onecolentry}
+            \begin{highlights}
+                \item Delivered presentation to illustrate physical problems in the tutorial
+                \item Solved problems for students during office hours
+            \end{highlights}
+        \end{onecolentry}
+
+    \section{Skills}
+
+        \begin{onecolentry}
+            \textbf{Technologies \& Frameworks:} PyTorch, Tensorflow, Pybullet, ROS, SIMD/OpenMP, IsaacLab
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Programming Languages:} Python, C/C++, Matlab, RISCV, Verilog
+        \end{onecolentry}
+
+        \vspace{0.2 cm}
+
+        \begin{onecolentry}
+            \textbf{Languages:} English (Fluent), Chinese (Native)
+        \end{onecolentry}
+
+    
+
+\end{document}
+
