@@ -6,9 +6,9 @@ import Layout from "../layouts/Layout.astro";
   <!-- Header Section -->
   <section class="pt-16 pb-12">
     <div class="mx-auto max-w-4xl px-6">
-      <div class="text-center md:flex md:items-center md:gap-8 md:text-left">
-        <img src="/profile.jpg" alt="Chen Yang" class="w-48 h-48 md:w-56 md:h-56 rounded-full object-cover mx-auto md:mx-0 mb-6 md:mb-0 shadow-lg ring-4 ring-gray-300 ring-offset-2 ring-offset-white" loading="lazy" decoding="async" />
-        <div class="flex-1">
+      <div class="text-center md:flex md:items-center md:gap-16 md:text-left">
+        <img src="/profile.jpg" alt="Chen Yang" class="w-64 h-64 md:w-72 md:h-72 rounded-full object-cover mx-auto md:mx-0 mb-6 md:mb-0 shadow-lg ring-4 ring-gray-300 ring-offset-2 ring-offset-white flex-shrink-0" loading="lazy" decoding="async" />
+        <div class="flex-1 md:ml-4">
           <h1 class="text-5xl font-bold text-gray-900 mb-4">
             <span class="flex flex-col items-center md:items-start leading-tight">
               <span class="inline-flex items-center mb-2">
@@ -19,10 +19,11 @@ import Layout from "../layouts/Layout.astro";
             </span>
           </h1>
           <p class="text-xl text-gray-600 mb-6">CUHK-Shenzhen · Electronic & Computer Engineering · Undergraduate</p>
-          <p class="text-lg text-gray-700 max-w-3xl md:mx-0 mx-auto leading-relaxed">
-            I am an undergraduate student at The Chinese University of Hong Kong, Shenzhen, majoring in Electronic & Computer Engineering.
-            My research focuses on Robotics and Machine Learning, specifically developing algorithms to enable robots to learn and perform complex tasks.
-            I am passionate about both software and hardware aspects of robotics systems.
+          <p class="text-xl text-gray-700 max-w-3xl md:mx-0 mx-auto leading-relaxed">
+            Hi there! I'm Chen Yang, an undergraduate student at The Chinese University of Hong Kong, Shenzhen, majoring in Electronic & Computer Engineering. 
+          </p>
+          <p class="text-xl text-gray-700 max-w-3xl md:mx-0 mx-auto leading-relaxed mt-4">
+            My research interests primarily focus on robotics. I am actively exploring various areas of robotics, including using learning-based methods to control robots and building fantastic robotic systems. In addition, I am also interested in reinforcement learning and deep learning algorithms.
           </p>
           <div class="mt-8 flex gap-6 justify-center md:justify-start">
             <a href="mailto:chenyang@link.cuhk.edu.cn" class="text-gray-600 hover:text-blue-600 transition-colors">Email</a>
@@ -44,94 +45,13 @@ import Layout from "../layouts/Layout.astro";
       <div class="flex gap-4 mb-8" id="project-filters">
         <button class="filter-btn px-4 py-2 bg-blue-600 text-white rounded-full text-sm font-medium active" data-filter="all">All</button>
         <button class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors" data-filter="robotics">Robotics</button>
-        <button class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors" data-filter="ml">Machine Learning</button>
+        <button class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors" data-filter="rl">Reinforcement Learning</button>
+        <button class="filter-btn px-4 py-2 bg-gray-200 text-gray-700 rounded-full text-sm font-medium hover:bg-gray-300 transition-colors" data-filter="dl">Deep Learning</button>
       </div>
 
-      <!-- Projects Grid -->
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Project 1 -->
-        <div class="project-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow" data-category="robotics ml">
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="text-sm font-medium text-blue-600 bg-blue-100 px-3 py-1 rounded-full">Lead</span>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Robotic Learning and Control Systems</h3>
-            <div class="text-sm text-gray-600 mb-4">
-              <strong>Authors:</strong> Chen Yang, Co-researchers · 2024
-            </div>
-            <p class="text-gray-700 mb-4">
-              Developing advanced algorithms for robotic learning and control, focusing on enabling robots to perform complex tasks through machine learning approaches.
-            </p>
-            <div class="flex gap-3">
-              <a href="mailto:chenyang@link.cuhk.edu.cn?subject=Research Inquiry" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Contact</a>
-              <span class="text-gray-400 text-sm">|</span>
-              <span class="text-gray-500 text-sm">Coming Soon</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow" data-category="robotics">
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="text-sm font-medium text-green-600 bg-green-100 px-3 py-1 rounded-full">Research</span>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Autonomous Systems Development</h3>
-            <div class="text-sm text-gray-600 mb-4">
-              <strong>Authors:</strong> Chen Yang, Research Team · 2024
-            </div>
-            <p class="text-gray-700 mb-4">
-              Research on autonomous systems, combining robotics with advanced control algorithms for real-world applications.
-            </p>
-            <div class="flex gap-3">
-              <a href="mailto:chenyang@link.cuhk.edu.cn?subject=Research Collaboration" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Contact</a>
-              <span class="text-gray-400 text-sm">|</span>
-              <span class="text-gray-500 text-sm">In Progress</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow" data-category="ml">
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="text-sm font-medium text-purple-600 bg-purple-100 px-3 py-1 rounded-full">Internship</span>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">Big Data Algorithm Optimization</h3>
-            <div class="text-sm text-gray-600 mb-4">
-              <strong>Organization:</strong> Shenzhen Institute of Big Data · 2024
-            </div>
-            <p class="text-gray-700 mb-4">
-              Developed and optimized algorithms for big data processing and analysis during internship at Shenzhen Institute of Big Data.
-            </p>
-            <div class="flex gap-3">
-              <a href="mailto:chenyang@link.cuhk.edu.cn?subject=Internship Experience" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Contact</a>
-              <span class="text-gray-400 text-sm">|</span>
-              <span class="text-gray-500 text-sm">Completed</span>
-            </div>
-          </div>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project-card bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow" data-category="robotics ml">
-          <div class="p-6">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="text-sm font-medium text-orange-600 bg-orange-100 px-3 py-1 rounded-full">Research</span>
-            </div>
-            <h3 class="text-xl font-bold text-gray-900 mb-2">High-Performance Computing for Robotics</h3>
-            <div class="text-sm text-gray-600 mb-4">
-              <strong>Lab:</strong> HiPerLab, UC Berkeley · 2024
-            </div>
-            <p class="text-gray-700 mb-4">
-              Research in high-performance computing applications for robotics at UC Berkeley's HiPerLab.
-            </p>
-            <div class="flex gap-3">
-              <a href="mailto:chenyang@link.cuhk.edu.cn?subject=Research at Georgia Tech" class="text-blue-600 hover:text-blue-800 text-sm font-medium">Contact</a>
-              <span class="text-gray-400 text-sm">|</span>
-              <span class="text-gray-500 text-sm">Ongoing</span>
-            </div>
-          </div>
-        </div>
+      <!-- Under Construction -->
+      <div class="text-center py-16">
+        <p class="text-xl text-gray-600 italic">Under Construction</p>
       </div>
     </div>
   </section>
@@ -161,7 +81,22 @@ import Layout from "../layouts/Layout.astro";
             <h3 class="text-2xl font-semibold text-gray-900 mb-1">Research Assistant</h3>
             <p class="text-xl text-gray-700 mb-3">LiDAR Lab, Georgia Institute of Technology</p>
             <p class="text-base text-gray-500 mb-4">May 2025 - Present</p>
-            <p class="text-gray-600 text-lg">Researching advanced LiDAR technologies and their applications in autonomous systems.</p>
+            <p class="text-gray-600 text-lg"><strong>Advisor:</strong> Prof. Ye Zhao and Feiyang Wu</p>
+          </div>
+        </div>
+
+        <!-- AIRS Research Assistant -->
+        <div class="flex gap-8 items-start p-6 bg-white rounded-xl shadow-sm hover:shadow-md transition-shadow">
+          <div class="flex-shrink-0">
+            <div class="w-24 h-24 bg-white rounded-xl flex items-center justify-center overflow-hidden">
+              <img src="/images/AIRS.png" alt="Shenzhen Institute of Artificial Intelligence and Robotics for Society" class="w-full h-full object-contain p-2" loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <div class="flex-1">
+            <h3 class="text-2xl font-semibold text-gray-900 mb-1">Research Assistant</h3>
+            <p class="text-xl text-gray-700 mb-3">Soft Robotics Lab, Shenzhen Institute of Artificial Intelligence and Robotics for Society</p>
+            <p class="text-base text-gray-500 mb-4">Sep 2023 - Present</p>
+            <p class="text-gray-600 text-lg"><strong>Advisor:</strong> Prof. Jian Zhu and Xuanyang Xu</p>
           </div>
         </div>
 
@@ -176,7 +111,7 @@ import Layout from "../layouts/Layout.astro";
             <h3 class="text-2xl font-semibold text-gray-900 mb-1">Research Assistant</h3>
             <p class="text-xl text-gray-700 mb-3">HiPerLab, University of California, Berkeley</p>
             <p class="text-base text-gray-500 mb-4">Sep 2024 - Dec 2024</p>
-            <p class="text-gray-600 text-lg">Conducted research in high-performance computing and robotics applications.</p>
+            <p class="text-gray-600 text-lg"><strong>Advisor:</strong> Prof. Mark M. Mueller and Ruiqi Zhang</p>
           </div>
         </div>
 
@@ -191,7 +126,7 @@ import Layout from "../layouts/Layout.astro";
             <h3 class="text-2xl font-semibold text-gray-900 mb-1">Algorithm Intern</h3>
             <p class="text-xl text-gray-700 mb-3">Shenzhen Institute of Big Data</p>
             <p class="text-base text-gray-500 mb-4">May 2024 - Sep 2024</p>
-            <p class="text-gray-600 text-lg">Developed and optimized algorithms for big data processing and analysis.</p>
+            <p class="text-gray-600 text-lg"><strong>Advisor:</strong> Dr. Yangyang Peng and Dr. Yinjun Shen</p>
           </div>
         </div>
       </div>
@@ -238,7 +173,7 @@ import Layout from "../layouts/Layout.astro";
             <h3 class="text-2xl font-semibold text-gray-900 mb-1">Teaching Assistant</h3>
             <p class="text-xl text-gray-700 mb-3">CUHK-Shenzhen</p>
             <p class="text-base text-gray-500 mb-4">Jan 2024 - May 2024</p>
-            <p class="text-gray-600 text-lg">Assisted in teaching physics fundamentals and provided academic support to students.</p>
+            <p class="text-gray-600 text-lg"><strong>Course:</strong> Mechanics (phy1001)</p>
           </div>
         </div>
       </div>
