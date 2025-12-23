@@ -1,0 +1,139 @@
+---
+import { getCollection } from 'astro:content';
+import type { CollectionEntry } from 'astro:content';
+import Layout from "../layouts/Layout.astro";
+
+const allPosts: CollectionEntry<'blog'>[] = (await getCollection('blog')).sort(
+	(a: CollectionEntry<'blog'>, b: CollectionEntry<'blog'>) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const categories = ["All", ...Array.from(new Set(allPosts.map((p) => p.data.category)))];
+---
+
+<Layout title="Blog — Chen Yang" description="Thoughts on robotics, reinforcement learning, and deep learning.">
+  <section class="py-16 md:py-24 reveal">
+    <div class="mx-auto max-w-5xl px-6">
+      <!-- Blog Header -->
+      <div class="relative mb-20">
+        <div class="absolute -left-4 top-0 w-24 h-24 bg-blue-600/10 rounded-full blur-3xl -z-10 animate-pulse"></div>
+        <div class="max-w-3xl">
+          <h1 class="text-6xl font-extrabold text-gray-900 dark:text-white mb-6 tracking-tight">
+            Writing <span class="text-blue-600">&</span> Thoughts
+          </h1>
+          <p class="text-xl text-gray-600 dark:text-slate-400 leading-relaxed">
+            关于科研和生活的一些思考。
+          </p>
+        </div>
+      </div>
+
+      <!-- Filters -->
+      <div class="flex flex-wrap items-center gap-3 mb-16 border-b border-slate-100 dark:border-slate-800 pb-8">
+        <span class="text-sm font-bold text-slate-400 uppercase tracking-widest mr-2">Categories:</span>
+        {categories.map((category) => (
+          <button 
+            data-category={category}
+            class={`blog-filter-btn px-5 py-2 rounded-xl text-sm font-bold transition-all duration-300 border
+              ${category === "All" 
+                ? "bg-blue-600 text-white border-blue-600 shadow-lg shadow-blue-500/20" 
+                : "bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-400 border-slate-200 dark:border-slate-800 hover:border-blue-400"}`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
+      <!-- Blog List -->
+      <div class="flex flex-col gap-10 blog-posts-container">
+        {allPosts.map((post) => (
+          <article 
+            data-category={post.data.category}
+            class="blog-post-card group relative flex flex-col md:flex-row gap-8 p-8 md:p-10 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1"
+          >
+            <!-- Date/Meta Side (Left on Desktop) -->
+            <div class="md:w-1/4 flex flex-col">
+              <div class="flex flex-wrap items-center md:flex-col md:items-start gap-3">
+                <span class="px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 border border-blue-100 dark:border-blue-800/50">
+                  {post.data.category}
+                </span>
+                <div class="flex items-center gap-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mt-1">
+                  <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                  {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' })}
+                </div>
+                <div class="flex items-center gap-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase">
+                  <i data-lucide="clock" class="w-3.5 h-3.5"></i> {post.data.readingTime}
+                </div>
+              </div>
+            </div>
+            
+            <!-- Content Side (Right on Desktop) -->
+            <div class="md:w-3/4 flex flex-col">
+              <a href={`/posts/${post.slug}`} class="block group-hover:text-blue-600 transition-colors mb-4">
+                <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                  {post.data.title}
+                </h2>
+              </a>
+              
+              <p class="text-lg text-slate-600 dark:text-slate-400 line-clamp-2 mb-8 leading-relaxed">
+                {post.data.description}
+              </p>
+              
+              <div class="mt-auto">
+                <a href={`/posts/${post.slug}`} class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group/link">
+                  阅读全文 <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover/link:translate-x-1"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      {allPosts.length === 0 && (
+        <div class="text-center py-32 bg-slate-50 dark:bg-slate-900/50 rounded-[40px] border-4 border-dashed border-slate-200 dark:border-slate-800">
+          <div class="w-20 h-20 bg-slate-200 dark:bg-slate-800 rounded-full flex items-center justify-center mx-auto mb-6 text-slate-400">
+            <i data-lucide="pen-tool" class="w-10 h-10"></i>
+          </div>
+          <p class="text-xl text-slate-500 dark:text-slate-400 font-medium italic">更多精彩内容正在创作中...</p>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <script>
+    // Blog Category Filtering
+    const filterButtons = document.querySelectorAll('.blog-filter-btn');
+    const posts = document.querySelectorAll('.blog-post-card');
+
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category');
+
+        // Update active state
+        filterButtons.forEach(b => {
+          b.classList.remove('bg-blue-600', 'text-white', 'border-blue-600', 'shadow-lg', 'shadow-blue-500/20');
+          b.classList.add('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-400', 'border-slate-200', 'dark:border-slate-800');
+        });
+        btn.classList.add('bg-blue-600', 'text-white', 'border-blue-600', 'shadow-lg', 'shadow-blue-500/20');
+        btn.classList.remove('bg-white', 'dark:bg-slate-900', 'text-slate-600', 'dark:text-slate-400', 'border-slate-200', 'dark:border-slate-800');
+
+        // Filter posts
+        posts.forEach(post => {
+          const htmlPost = post as HTMLElement;
+          const postCategory = post.getAttribute('data-category');
+          if (category === 'All' || postCategory === category) {
+            htmlPost.style.display = 'flex';
+            setTimeout(() => { 
+              htmlPost.style.opacity = '1'; 
+              htmlPost.style.transform = 'translateY(0)'; 
+            }, 50);
+          } else {
+            htmlPost.style.opacity = '0';
+            htmlPost.style.transform = 'translateY(20px)';
+            setTimeout(() => { 
+              htmlPost.style.display = 'none'; 
+            }, 300);
+          }
+        });
+      });
+    });
+  </script>
+</Layout>
