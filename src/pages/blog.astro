@@ -42,44 +42,47 @@ const categories = ["All", ...Array.from(new Set(allPosts.map((p) => p.data.cate
         ))}
       </div>
 
-      <!-- Blog List -->
-      <div class="flex flex-col gap-10 blog-posts-container">
-        {allPosts.map((post) => (
+      <!-- Blog Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 blog-posts-container">
+        {allPosts.map((post, index) => (
           <article 
             data-category={post.data.category}
-            class="blog-post-card group relative flex flex-col md:flex-row gap-8 p-8 md:p-10 rounded-[2.5rem] bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1"
+            class={`blog-post-card group relative flex flex-col p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 hover:-translate-y-1
+              ${index === 0 ? "md:col-span-2 md:flex-row md:items-center gap-12" : ""}`}
           >
-            <!-- Date/Meta Side (Left on Desktop) -->
-            <div class="md:w-1/4 flex flex-col">
-              <div class="flex flex-wrap items-center md:flex-col md:items-start gap-3">
+            {index === 0 && (
+              <div class="md:w-1/2 overflow-hidden rounded-2xl aspect-video bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-800 flex items-center justify-center relative">
+                <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#3b82f6_1px,transparent_1px)] [background-size:20px_20px]"></div>
+                <div class="text-6xl font-bold text-blue-600/20 group-hover:scale-110 transition-transform duration-700">FEATURED</div>
+              </div>
+            )}
+            
+            <div class={index === 0 ? "md:w-1/2" : ""}>
+              <div class="flex items-center gap-3 mb-6">
                 <span class="px-3 py-1 rounded-lg text-[10px] font-black uppercase tracking-widest bg-blue-50 text-blue-600 dark:bg-blue-900/30 dark:text-blue-400 border border-blue-100 dark:border-blue-800/50">
                   {post.data.category}
                 </span>
-                <div class="flex items-center gap-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mt-1">
-                  <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
+                <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase">
                   {post.data.pubDate.toLocaleDateString('zh-CN', { year: 'numeric', month: '2-digit', day: '2-digit' })}
-                </div>
-                <div class="flex items-center gap-2 text-xs font-bold text-slate-400 dark:text-slate-500 uppercase">
-                  <i data-lucide="clock" class="w-3.5 h-3.5"></i> {post.data.readingTime}
-                </div>
+                </span>
               </div>
-            </div>
-            
-            <!-- Content Side (Right on Desktop) -->
-            <div class="md:w-3/4 flex flex-col">
+              
               <a href={`/posts/${post.slug}`} class="block group-hover:text-blue-600 transition-colors mb-4">
-                <h2 class="text-3xl font-extrabold text-gray-900 dark:text-white leading-tight">
+                <h2 class={`${index === 0 ? "text-4xl" : "text-2xl"} font-extrabold text-gray-900 dark:text-white leading-tight`}>
                   {post.data.title}
                 </h2>
               </a>
               
-              <p class="text-lg text-slate-600 dark:text-slate-400 line-clamp-2 mb-8 leading-relaxed">
+              <p class="text-slate-600 dark:text-slate-400 line-clamp-3 mb-8 leading-relaxed">
                 {post.data.description}
               </p>
               
-              <div class="mt-auto">
-                <a href={`/posts/${post.slug}`} class="inline-flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group/link">
-                  阅读全文 <i data-lucide="arrow-right" class="w-4 h-4 transition-transform group-hover/link:translate-x-1"></i>
+              <div class="flex items-center justify-between mt-auto pt-6 border-t border-slate-50 dark:border-slate-800/50">
+                <div class="flex items-center gap-2 text-xs font-bold text-slate-400">
+                  <i data-lucide="clock" class="w-4 h-4"></i> {post.data.readingTime}
+                </div>
+                <a href={`/posts/${post.slug}`} class="flex items-center gap-2 text-sm font-bold text-blue-600 dark:text-blue-400 group/link">
+                  阅读全文 <i data-lucide="chevron-right" class="w-4 h-4 transition-transform group-hover/link:translate-x-1"></i>
                 </a>
               </div>
             </div>
