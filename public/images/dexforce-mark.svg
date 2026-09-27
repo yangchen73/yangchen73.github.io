@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 46 50" role="img" aria-labelledby="title">
+  <title id="title">DexForce</title>
+  <!-- Mark from DexForce’s official wordmark: https://en.dexforce.com/ -->
+  <g fill="#2e609d">
+    <path d="M30.6,0h0s-30.6,0-30.6,0v50h30.6c8.4,0,15.3-6.9,15.3-15.4V15.4C45.9,6.9,39,0,30.6,0ZM37.6,34.6c0,3.9-3.1,7-7,7H8.3V8.3h22.7c3.6.2,6.5,3.2,6.6,6.9v19.4Z"/>
+    <rect x="24.6" y="26.7" width="8.3" height="8.3"/>
+    <path d="M34.3,15.4v4.6h-14.4v18.3h-8.3V11.7h19.1c2,0,3.6,1.7,3.6,3.7Z"/>
+  </g>
+</svg>

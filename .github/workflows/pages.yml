@@ -1,0 +1,56 @@
+name: Deploy GitHub Pages
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Require completed profile
+        run: |
+          node --input-type=module <<'NODE'
+          import content from './src/content.mjs';
+          const name = content.name?.trim();
+          const hasBio = content.bio?.some(paragraph => paragraph.trim());
+          if (content.draft !== false || !name || name === 'Your Name' || !hasBio) {
+            console.error('Complete your profile and set draft: false in src/content.mjs before publishing.');
+            process.exit(1);
+          }
+          NODE
+
+      - name: Check content and build static site
+        run: npm run check
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -1,0 +1,185 @@
+% Chen Yang's CV, adapted from Sina Atalay's RenderCV EngineeringResumes theme:
+% https://www.overleaf.com/latex/templates/rendercv-engineeringresumes-theme/shwqvsxdgkjy
+% Keep this source and public/cv.pdf in sync with the build command in cv/README.md.
+\documentclass[10pt,letterpaper]{article}
+
+\usepackage[ignoreheadfoot,top=1.4cm,bottom=1.35cm,left=1.85cm,right=1.85cm]{geometry}
+\usepackage{titlesec}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{charter}
+\usepackage{changepage}
+\usepackage{paracol}
+\usepackage{needspace}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\definecolor{primaryColor}{RGB}{0,0,0}
+\usepackage[pdftitle={Chen Yang - Academic CV},pdfauthor={Chen Yang},pdfcreator={LaTeX with RenderCV EngineeringResumes theme},colorlinks=true,urlcolor=primaryColor]{hyperref}
+
+\raggedright
+\linespread{1.04}
+\pagestyle{empty}
+\setcounter{secnumdepth}{0}
+\setlength{\parindent}{0pt}
+\setlength{\topskip}{0pt}
+\setlength{\columnsep}{0.4cm}
+\titleformat{\section}{\needspace{4\baselineskip}\bfseries\large}{}{0pt}{}[\vspace{1pt}\titlerule]
+\titlespacing{\section}{-1pt}{0.23cm}{0.18cm}
+\renewcommand\labelitemi{$\vcenter{\hbox{\small$\bullet$}}$}
+
+\newenvironment{highlights}{\begin{itemize}[topsep=0.09cm,parsep=0pt,partopsep=0pt,itemsep=0.04cm,leftmargin=0.4cm]}{\end{itemize}}
+\newenvironment{onecolentry}{\begin{adjustwidth}{0.00001cm}{0.00001cm}}{\end{adjustwidth}}
+\newenvironment{twocolentry}[2][]{%
+  \onecolentry
+  \def\secondColumn{#2}
+  \setcolumnwidth{\fill,3.7cm}
+  \begin{paracol}{2}
+}{%
+  \switchcolumn\raggedleft\secondColumn
+  \end{paracol}
+  \endonecolentry
+}
+\newenvironment{header}{\setlength{\topsep}{0pt}\par\kern\topsep\centering\linespread{1.5}}{\par\kern\topsep}
+
+\begin{document}
+\begin{header}
+  \fontsize{25pt}{25pt}\selectfont Chen Yang
+
+  \vspace{5pt}
+  \normalsize
+  \href{mailto:chenyang@link.cuhk.edu.cn}{chenyang@link.cuhk.edu.cn}
+  \quad|\quad
+  (+86) 15267711552\\
+  The Chinese University of Hong Kong, Shenzhen, China, 518172
+\end{header}
+
+\vspace{0.08cm}
+
+\section{Education}
+\begin{twocolentry}{09/2022 -- 05/2027 (Expected)}
+  \textbf{The Chinese University of Hong Kong, Shenzhen}\\
+  Major in Electrical and Computer Engineering
+\end{twocolentry}
+\begin{onecolentry}
+  \begin{highlights}
+    \item Cumulative GPA: 3.856/4.0 (Rank: 5/116)
+    \item Research Interests: Robot Learning, Reinforcement Learning
+    \item Awards \& Honors: Creativity and Innovation Award, 2024; Academic Scholarship, 2023 \& 2024;\\
+      Dean's List, 2023 \& 2024 \& 2025 \& 2026
+  \end{highlights}
+\end{onecolentry}
+\vspace{0.12cm}
+\begin{twocolentry}{09/2024 -- 12/2024}
+  \textbf{University of California, Berkeley}\\
+  Visiting Student
+\end{twocolentry}
+\begin{onecolentry}
+  \begin{highlights}
+    \item Cumulative GPA: 4.0/4.0
+    \item Related Courses: Computer Architecture, Artificial Intelligence, Discrete Math (A+)
+  \end{highlights}
+\end{onecolentry}
+
+\section{Publications}
+\begin{onecolentry}
+  \begin{enumerate}[label={[\arabic*]},leftmargin=0.55cm,topsep=0.03cm,parsep=0pt,itemsep=0.04cm]
+    \item Feiyang Wu, Chenxiao Gao, \textbf{Chen Yang}, Ye Zhao, Bo Dai, and Anqi Wu. ``\href{https://arxiv.org/abs/2609.37677}{Learning Expressive and Compositional Motion Representation via Spectral Skills}.'' 2026. Submitted to ICLR; IROS 2026 Workshop Best Paper.
+  \end{enumerate}
+\end{onecolentry}
+
+\section{Research Experience}
+\begin{twocolentry}{01/2026 -- Present}
+  \textbf{Robot Motion Generation}\\
+  Research Intern, Advisor: Guiliang Liu\\
+  DexForce
+\end{twocolentry}
+\begin{onecolentry}
+  \begin{highlights}
+    \item Lead research on robot motion generation, focusing on producing feasible motions under diverse constraints.
+    \item Further details coming soon.
+  \end{highlights}
+\end{onecolentry}
+\vspace{0.16cm}
+
+\begin{twocolentry}{06/2026 -- 09/2026}
+  \textbf{Learning Expressive and Compositional Motion Representation via Spectral Skills}\\
+  Research Intern, Advisors: Prof. Ye Zhao and Prof. Anqi Wu\\
+  LiDAR Lab \& BRAINML Lab, Georgia Institute of Technology
+\end{twocolentry}
+\begin{onecolentry}
+  \begin{highlights}
+    \item Pretrained, fine-tuned, and evaluated the high-level planner using predictive spectral skills as commands for a low-level whole-body controller.
+    \item Reproduced baselines, including SONIC, and helped design ablation studies to assess key modules and design choices.
+    \item Worked with the team to build sim-to-sim and sim-to-real pipelines and deploy simulation-trained policies on a Unitree G1 humanoid.
+  \end{highlights}
+\end{onecolentry}
+\vspace{0.16cm}
+
+\begin{twocolentry}{09/2023 -- 04/2024}
+  \textbf{Smart Stop Snoring Pillow}\\
+  Research Assistant, Advisor: Prof. Jian Zhu\\
+  Soft Robotics Lab, CUHKSZ
+\end{twocolentry}
+\begin{onecolentry}
+  \begin{highlights}
+    \item Designed and built an integrated pneumatic soft-robotic pillow for non-invasive snoring mitigation, combining pneumatic, electronic, sensing, and embedded-control subsystems.
+    \item Modeled airflow through the tubing and airbag using Poiseuille’s law and pressure differentials from two barometers to estimate flow and precisely control airbag height; built ROS-based middleware connecting the host computer and microcontroller.
+    \item Applied FFT to barometric-pressure signals to estimate heart and respiratory rates, and developed a Transformer-CNN classifier to distinguish snoring from non-snoring events.
+  \end{highlights}
+\end{onecolentry}
+\vspace{0.16cm}
+
+\newpage
+\section{Internship}
+\begin{twocolentry}{01/2026 -- Present}
+  \textbf{DexForce}\\
+  Research Intern
+\end{twocolentry}
+\begin{onecolentry}
+  \begin{highlights}
+    \item Core contributor to \href{https://github.com/DexForce/EmbodiChain}{EmbodiChain}, an end-to-end, GPU-accelerated, modular platform for embodied AI.
+    \item Refined and developed EmbodiChain's RL framework for manipulation, humanoid motion, and VLA post-training.
+  \end{highlights}
+\end{onecolentry}
+\vspace{0.16cm}
+
+\begin{twocolentry}{04/2024 -- 08/2024}
+  \textbf{Shenzhen Research Institute of Big Data}\\
+  Research Intern
+\end{twocolentry}
+\begin{onecolentry}
+  \begin{highlights}
+    \item Developed an LSTM-T-KAN model for efficient, accurate long-horizon building-load forecasting to support power allocation.
+    \item Extracted frequency-domain features using the Fast Fourier Transform (FFT).
+  \end{highlights}
+\end{onecolentry}
+
+\section{Teaching}
+\begin{onecolentry}
+  \textbf{Teaching Assistant}
+\end{onecolentry}
+\vspace{0.08cm}
+\begin{twocolentry}{2026--27 Term 1}
+  ECE3080 Introduction to Embedded Systems
+\end{twocolentry}
+\vspace{0.08cm}
+\begin{twocolentry}{2026--27 Term 1}
+  ECE3810 Embedded Systems Laboratory
+\end{twocolentry}
+\vspace{0.08cm}
+\begin{twocolentry}{2023--24 Term 2}
+  PHY1001 Mechanics
+\end{twocolentry}
+
+\section{Skills}
+\begin{onecolentry}
+  \textbf{Programming Languages:} Python, C/C++, MATLAB, Java\\
+  \textbf{Technologies \& Frameworks:} PyTorch, TensorFlow, ROS, Linux, Git\\
+  \textbf{Languages:} English (TOEFL: 102), Chinese (Native)
+\end{onecolentry}
+
+\end{document}

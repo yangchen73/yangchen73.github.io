@@ -1,0 +1,12 @@
+{
+  "name": "research-homepage",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "check": "node --check src/content.mjs && node --check src/template.mjs && node --check public/main.js && node scripts/check.mjs && node scripts/build.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
