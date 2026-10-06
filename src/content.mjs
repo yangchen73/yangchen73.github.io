@@ -1,8 +1,6 @@
 // Edit homepage content here. Keep media in public/images/ or public/videos/.
 export default {
   lang: 'en',
-  // Set to false when the site is ready to be indexed and published.
-  draft: true,
   appearance: 'soft',
   url: '',
   name: 'Chen Yang',
