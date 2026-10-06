@@ -18,4 +18,4 @@ The CV source is in `cv/chen-yang-cv.tex`, and the downloadable version is `publ
 
 ## Publishing
 
-The site remains private while `draft` is set to `true` in `src/content.mjs`. Before publishing, set it to `false`, add the production URL, run `npm run check`, and manually trigger the GitHub Pages workflow.
+Set the production URL in `src/content.mjs`, run `npm run check`, and manually trigger the GitHub Pages workflow.

@@ -24,18 +24,6 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Require completed profile
-        run: |
-          node --input-type=module <<'NODE'
-          import content from './src/content.mjs';
-          const name = content.name?.trim();
-          const hasBio = content.bio?.some(paragraph => paragraph.trim());
-          if (content.draft !== false || !name || name === 'Your Name' || !hasBio) {
-            console.error('Complete your profile and set draft: false in src/content.mjs before publishing.');
-            process.exit(1);
-          }
-          NODE
-
       - name: Check content and build static site
         run: npm run check
 

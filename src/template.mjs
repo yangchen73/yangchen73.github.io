@@ -81,7 +81,6 @@ export function render(data) {
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f8fa">
   <meta name="description" content="${escape(data.description)}">
-  ${data.draft ? '<meta name="robots" content="noindex, nofollow">' : ''}
   <meta property="og:type" content="website">
   <meta property="og:title" content="${escape(shareTitle)}">
   <meta property="og:description" content="${escape(data.description)}">
@@ -125,11 +124,11 @@ export function render(data) {
         ${hasTeaching ? `<section class="teaching section" id="teaching" aria-labelledby="teaching-title">
           <div class="section-heading"><h2 id="teaching-title">Teaching</h2></div>
           ${data.teaching.filter(group => group.courses?.length).map(group => `<div class="teaching-group">
-            <h3 class="teaching-role">${escape(group.role || 'Teaching Assistant')}${group.institution || data.draft ? `<span> · ${escape(group.institution || 'University / Institution')}</span>` : ''}</h3>
+            <h3 class="teaching-role">${escape(group.role || 'Teaching Assistant')}${group.institution ? `<span> · ${escape(group.institution)}</span>` : ''}</h3>
             <ul class="course-list">${group.courses.map(course => `<li>
               <span class="course-code">${course.url ? link(course.code, course.url) : escape(course.code)}</span>
-              <span class="course-title${!course.title ? ' placeholder' : ''}">${escape(course.title || (data.draft ? 'Course title' : ''))}</span>
-              <span class="course-term${!course.term ? ' placeholder' : ''}">${escape(course.term || (data.draft ? 'Semester' : ''))}</span>
+              <span class="course-title${!course.title ? ' placeholder' : ''}">${escape(course.title || '')}</span>
+              <span class="course-term${!course.term ? ' placeholder' : ''}">${escape(course.term || '')}</span>
             </li>`).join('')}</ul>
           </div>`).join('')}
         </section>` : ''}
