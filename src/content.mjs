@@ -36,6 +36,13 @@ export default {
       ],
     },
     {
+      id: 'neural-motion-generator',
+      title: 'Neural Motion Generator (ongoing)',
+      authors: 'Project Leader · DexForce',
+      summary: 'Led research on generalizable motion generation for robotic manipulators. Designed a benchmark spanning multiple robot platforms and diverse motion tasks.',
+      links: [],
+    },
+    {
       id: 'embodichain',
       title: 'EmbodiChain',
       venue: '',
@@ -49,6 +56,19 @@ export default {
         { label: 'Code', url: 'https://github.com/DexForce/EmbodiChain' },
       ],
       details: '',
+    },
+    {
+      id: 'humanoid-locomotion',
+      title: 'Humanoid Locomotion',
+      venue: '',
+      year: '',
+      authors: '',
+      summary: 'Reproducing L2T using rsl_rl to train G1 for locomotion across complex terrain. The video demonstrates the learned policy navigating stairs in simulation.',
+      media: { type: 'video', src: 'videos/humanoid-locomotion.mp4', poster: 'images/humanoid-locomotion-poster.jpg', alt: 'Simulated G1 humanoid robots walking across terrain with stairs.', width: 568, height: 320 },
+      links: [
+        { label: 'Code', url: 'https://github.com/yangchen73/rsl_rl/tree/feature/l2t' },
+        { label: 'Reference: Learn to Teach', url: 'https://arxiv.org/abs/2402.06783' },
+      ],
     },
     {
       id: 'smart-stop-snoring-pillow',
