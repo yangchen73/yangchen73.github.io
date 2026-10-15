@@ -18,4 +18,4 @@ The CV source is in `cv/chen-yang-cv.tex`, and the downloadable version is `publ
 
 ## Publishing
 
-Set the production URL in `src/content.mjs`, run `npm run check`, and manually trigger the GitHub Pages workflow.
+Set the production URL in `src/content.mjs` and run `npm run check` before committing. Every push to `main` automatically builds and deploys the site to GitHub Pages. You can also trigger the workflow manually from GitHub Actions.

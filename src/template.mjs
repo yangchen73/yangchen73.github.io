@@ -24,12 +24,12 @@ function link(label, url, inner = escape(label), className = '') {
 function media(project) {
   const m = project.media || {};
   const src = safeUrl(m.src);
+  if (!src) return '';
   const width = Number.isInteger(m.width) && m.width > 0 ? m.width : 640;
   const height = Number.isInteger(m.height) && m.height > 0 ? m.height : 400;
-  const visual = src ? m.type === 'video'
+  const visual = m.type === 'video'
     ? `<video controls playsinline preload="metadata"${m.poster ? ` poster="${safeUrl(m.poster)}"` : ''} width="${width}" height="${height}" aria-label="${escape(m.alt || project.title)}"><source src="${src}">Your browser does not support this video.</video>`
-    : `<img src="${src}" alt="${escape(m.alt || project.title)}" width="${width}" height="${height}" loading="lazy" decoding="async">`
-    : `<div class="media-empty">Your research visual</div>`;
+    : `<img src="${src}" alt="${escape(m.alt || project.title)}" width="${width}" height="${height}" loading="lazy" decoding="async">`;
   const fit = src && m.type !== 'video' ? m.fit === 'cover' ? ' project-media-cover' : m.fit === 'natural' ? ' project-media-natural' : '' : '';
   const ratio = src && m.type === 'video' ? ` style="aspect-ratio: ${width} / ${height}"` : '';
   return `<figure class="project-media${fit}"${ratio}>${visual}</figure>`;
