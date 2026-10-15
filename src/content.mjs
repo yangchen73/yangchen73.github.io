@@ -36,13 +36,6 @@ export default {
       ],
     },
     {
-      id: 'neural-motion-generator',
-      title: 'Neural Motion Generator (ongoing)',
-      authors: 'Project Leader · DexForce',
-      summary: 'Led research on generalizable motion generation for robotic manipulators. Designed a benchmark spanning multiple robot platforms and diverse motion tasks.',
-      links: [],
-    },
-    {
       id: 'embodichain',
       title: 'EmbodiChain',
       venue: '',
